@@ -1,90 +1,136 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Image, Text, ScrollView} from 'react-native';
 
 const App = () => {
   return (
     <>
-      <View style={styles.contents}>
-        <View style={styles.box1} />
-        <View style={styles.box2} />
-        <View style={styles.box3} />
-        <View style={styles.box4} />
-      </View>
+      <ScrollView>
+        <View style={{flexDirection: 'row'}}>
+          <Image
+            style={styles.banner}
+            source={require('./assets/img/bg.jpg')}
+          />
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.title}>Que hacer en Paris</Text>
+          <ScrollView horizontal>
+            <View>
+              <Image
+                style={styles.city}
+                source={require('./assets/img/actividad1.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.city}
+                source={require('./assets/img/actividad2.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.city}
+                source={require('./assets/img/actividad3.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.city}
+                source={require('./assets/img/actividad4.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.city}
+                source={require('./assets/img/actividad5.jpg')}
+              />
+            </View>
+          </ScrollView>
+          <Text style={styles.title}>los mejores alojamiento</Text>
+          <View>
+            <View>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/mejores1.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/mejores2.jpg')}
+              />
+            </View>
+            <View>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/mejores3.jpg')}
+              />
+            </View>
+          </View>
+
+          <Text style={styles.title}>Hospedaje en lso Angeles</Text>
+          <View style={styles.list}>
+            <View style={styles.listItem}>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/hospedaje1.jpg')}
+              />
+            </View>
+            <View style={styles.listItem}>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/hospedaje2.jpg')}
+              />
+            </View>
+            <View style={styles.listItem}>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/hospedaje3.jpg')}
+              />
+            </View>
+            <View style={styles.listItem}>
+              <Image
+                style={styles.top}
+                source={require('./assets/img/hospedaje4.jpg')}
+              />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  contents: {
-    backgroundColor: 'cornflowerblue',
+  banner: {
+    height: 250,
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
   },
-  box1: {
-    padding: 20,
-    backgroundColor: 'navy',
+  title: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginVertical: 20,
   },
-  box2: {
-    padding: 20,
-    backgroundColor: 'yellow',
+  container: {
+    marginHorizontal: 10,
   },
-  box3: {
-    padding: 20,
-    backgroundColor: 'green',
+  city: {
+    width: 250,
+    height: 300,
+    marginRight: 10,
   },
-  box4: {
-    padding: 20,
-    backgroundColor: 'teal',
+  top: {
+    width: '100%',
+    height: 200,
+    marginVertical: 5,
+  },
+  list: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  listItem: {
+    flexBasis: '49%',
   },
 });
 
 export default App;
-
-
-
-// FlexBox
-//  flex: 1, aumenta todo lo que pueda crecer
-//  flex: 1, crecera todo lo que pueda si es que el padre, no tienen colocado
-/*
-    PADRE: flex: 1
-    |
-    |____HIJO: flex: 1,padding: 20,
-    |____HIJO: flex: 1,padding: 20,
-    |____HIJO: flex: 1,padding: 20,
-    |____HIJO: flex: 2,padding: 20, este box sera mucho mas grande ya que contiene un flex: 2.
-*/
-// flexDirection: 'column',           // por defecto
-// flexDirection: 'column-reverses',  // todos los elemento para abajo
-// flexDirection: 'row,               // elemento a la izquierda
-// flexDirection: 'row-reverse',      // elemento a la derecha
-
-// flexDirection: 'row',
-// justifyContent: 'center' corre los box al medio,
-// justifyContent: 'flex-end',corre los box a la derecha
-// justifyContent: 'flex-start',corre los box a la izquierda === que si no esta (default)
-// justifyContent: 'space-between',distribuye los box por igual pero tomando los dos extrema derecha-izquierda
-// justifyContent: 'space-evenly',Idem al anterior sin tomar los extremos
-// justifyContent: 'space-around', similar al anterior , los espacios son diferentes
-
-//  alignItems: 'flex-start', los box se colocan en la posicion de arriba,
-//  alignItems: 'flex-end', los box se colocan al final
-//  alignItems: 'center', los box se centran
-//  alignItems: 'stretch', estos es lo mimso por default
-
-//  puede centrar vertical y horizontal con:(en row)
-/*
-    justifyContent: 'center',
-    alignItems: 'center',
-*/
-
-// puede centrar vertical y horizontal con:(en clomun)
-/*
-    flexDirection: 'column',
-    justifyContent: 'center',
-*/
-//CUIDADO esto te puede confundir
-/*
-  flexDirection: 'column',
-  alignItems: 'center',
-*/
